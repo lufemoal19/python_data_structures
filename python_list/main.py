@@ -5,16 +5,11 @@
 @since 7/22/2023
 """
 
-
-
 lista_aplicaciones = [] # 5 aplicaciones
 
 lista_notificaciones = [] # cantidad TOTAL de notificaciones
 
 lista_notificaciones_enviadas = [] # cantidad TOTAL de notificaciones enviadas
-
-
-
 
 def menu():
     print("""\tMENU
@@ -66,7 +61,7 @@ def programa():
         if opcion == '2':
             #PROCESAMIENTO
             # KISP --> KEEP IT STUPID AS POSSIBLE
-
+            
             i = 0
             while i < cantidad_elementos: 
                 nombre = lista_aplicaciones[i]
@@ -79,6 +74,14 @@ def programa():
             pass
         if opcion == '3':
             #REPORTE
+            print("SISTEMA\tTOTAL\tENVIADAS\tNO ENVIADAS")
+            i = 0
+            while i < cantidad_elementos: 
+                nombre = lista_aplicaciones[i]
+                total = lista_notificaciones[i]
+                cantidad_enviadas = lista_notificaciones_enviadas[i]
+
+                print(f"{nombre}\t{total}\t{cantidad_enviadas}\t{total - cantidad_enviadas}")
             pass
         pass
     else:
