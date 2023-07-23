@@ -13,10 +13,10 @@ lista_notificaciones_enviadas = [] # cantidad TOTAL de notificaciones enviadas
 
 def menu():
     print("""\tMENU
-[0] SALIR 
 [1] CONFIGURACION
 [2] PROCESAMIENTO
 [3] REPORTES
+[0] SALIR 
 """)
     opcion = input(str("OPCION: "))
     return opcion
@@ -49,7 +49,7 @@ def notificaciones_enviadas(cantidad_notificaciones):
 
 def programa():
     opcion = 'a'
-    cantidad_elementos = 2 # TIENEN QUE SER 5 
+    cantidad_elementos = 5 # TIENEN QUE SER 5 
     while opcion != '0':
         opcion = menu()
         if opcion == '1':
@@ -81,15 +81,15 @@ def programa():
                 total = lista_notificaciones[i]
                 cantidad_enviadas = lista_notificaciones_enviadas[i]
 
-                print(f"{nombre}\t{total}\t{cantidad_enviadas}\t{total - cantidad_enviadas}")
+                print(f"{nombre}\t{total}\t{cantidad_enviadas}\t\t\t{total - cantidad_enviadas}")
+                i+=1
             pass
         pass
     else:
         print("FIN DEL PROGRAMA")
 
 
-if __name__ == "__main__":
-    programa()
+programa()
 
 
 # ! -> not  
