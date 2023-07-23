@@ -26,23 +26,71 @@ def menu():
     opcion = input(str("OPCION: "))
     return opcion
 
-def cargar_datos():
+def cargar_datos(cantidad_elementos):
     cantidad = 0
-    while cantidad < 5:
+    while cantidad < cantidad_elementos:
 
         nombre = input(str("NOMBRE DE LA APLICACION: "))
-        cantidad_notificaciones = input(int("CANTIDAD TOTAL DE NOTIFICACIONES: "))
-
         lista_aplicaciones.append(nombre)
-        lista_notificaciones.append(cantidad_notificaciones)
+
+        cantidad_notificaciones = input(str("CANTIDAD TOTAL DE NOTIFICACIONES: "))
+        lista_notificaciones.append(int(cantidad_notificaciones))
 
         cantidad+=1
     else:
         print("FIN DE LA CONFIGURACION")
 
+def notificaciones_enviadas(cantidad_notificaciones):
+    cantidad_enviada = 0
+    cantidad_no_enviada = 0
+    for i in range(0, cantidad_notificaciones):
+        opcion = input(str("LA NOTIFACION "+ str(i) + " FUE ENVIADA ? [1] SI | [2] NO "))
+        if opcion == '1':
+            cantidad_enviada+=1
+        else:
+            cantidad_no_enviada+=1
+    return cantidad_enviada
 
+
+def programa():
+    opcion = 'a'
+    cantidad_elementos = 2 # TIENEN QUE SER 5 
+    while opcion != '0':
+        opcion = menu()
+        if opcion == '1':
+            #CONFIGURACION
+            cargar_datos(cantidad_elementos)
+            print(f"APLICACIONES: {lista_aplicaciones}")
+            print(f"NOTIFICACIONES {lista_notificaciones}")
+            pass
+        if opcion == '2':
+            #PROCESAMIENTO
+            # KISP --> KEEP IT STUPID AS POSSIBLE
+
+            i = 0
+            while i < cantidad_elementos: 
+                nombre = lista_aplicaciones[i]
+                cantidad = lista_notificaciones[i]
+                print(f"APLICACION {nombre} \t TOTAL {cantidad}")
+                cantidad_enviadas = notificaciones_enviadas(cantidad)
+                lista_notificaciones_enviadas.append(cantidad_enviadas)
+                print(f"CANTIDAD NOTIFICACIONES ENVIADAS: {cantidad_enviadas} \n CANTIDAD NOTIFICACIONES NO ENVIADAS: {cantidad - cantidad_enviadas}")
+                i+=1
+            pass
+        if opcion == '3':
+            #REPORTE
+            pass
+        pass
+    else:
+        print("FIN DEL PROGRAMA")
 
 
 if __name__ == "__main__":
-    opcion = menu()
-    print(f"LA OPCION SELECCIONADA FUE: {opcion}")
+    programa()
+
+
+# ! -> not  
+# == equals ---> equivalente 
+# != not equals 
+# is --> == 
+# is not --> != 
