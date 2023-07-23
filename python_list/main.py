@@ -46,6 +46,16 @@ def notificaciones_enviadas(cantidad_notificaciones):
             cantidad_no_enviada+=1
     return cantidad_enviada
 
+def reporte(cantidad_elementos):
+    print("SISTEMA\t\tTOTAL\tENVIADAS\tNO ENVIADAS")
+    i = 0
+    while i < cantidad_elementos: 
+        nombre = lista_aplicaciones[i]
+        total = lista_notificaciones[i]
+        cantidad_enviadas = lista_notificaciones_enviadas[i]
+
+        print(f"{nombre}\t\t{total}\t{cantidad_enviadas}\t\t\t{total - cantidad_enviadas}")
+        i+=1
 
 def programa():
     opcion = 'a'
@@ -74,15 +84,7 @@ def programa():
             pass
         if opcion == '3':
             #REPORTE
-            print("SISTEMA\tTOTAL\tENVIADAS\tNO ENVIADAS")
-            i = 0
-            while i < cantidad_elementos: 
-                nombre = lista_aplicaciones[i]
-                total = lista_notificaciones[i]
-                cantidad_enviadas = lista_notificaciones_enviadas[i]
-
-                print(f"{nombre}\t{total}\t{cantidad_enviadas}\t\t\t{total - cantidad_enviadas}")
-                i+=1
+            reporte(cantidad_elementos)
             pass
         pass
     else:
